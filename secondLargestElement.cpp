@@ -19,12 +19,17 @@ class Solution {
         int firstLargestElement=INT_MIN;
         
         for(auto i:arr){
-            if(i>firstLargestElement)   firstLargestElement=i;
+            if(i>firstLargestElement)   
+            {
+                secondLargestElement=firstLargestElement;
+                firstLargestElement=i;
+            }
+            else if(i>secondLargestElement && i!= firstLargestElement) secondLargestElement=i;
         }
         
-        for(auto i:arr){
-            if(i>secondLargestElement && i!=firstLargestElement) secondLargestElement=i;
-        }
+        // for(auto i:arr){
+        //     if(i>secondLargestElement && i!=firstLargestElement) secondLargestElement=i;
+        // }
         return secondLargestElement==INT_MIN ? -1:secondLargestElement;
     }
 };
